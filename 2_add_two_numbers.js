@@ -8,24 +8,43 @@ const l1 = [
         [0],
         [9,9,9,9]
         ];
-l1.forEach((item,index) => console.log(addTwoNumbers(l1[index], l2[index])));
-// console.log(addTwoNumbers(l1, l2));
+class ListNode {
+    val;
+    next;
+    constructor(val, next) {
+        this.val = (val===undefined ? 0 : val)
+        this.next = (next===undefined ? null : next)
+    }
+}
+l1.forEach((item,index) => console.log(JSON.stringify(addTwoNumbers(createListFromArray(l1[index]), createListFromArray(l2[index])))));
 
 function addTwoNumbers(l1,l2) {
     let sum = 0;
-    let list = new ListNode(0);
-    for(let i = 0; i < Math.max(l1.length, l2.length); i++) {
-        // console.log(i,l1[l1.length - 1 - i],l2[l2.length - 1 - i],Math.pow(10,i));
-        sum += (i < l1.length ? l1[l1.length - 1 - i] : 0) * Math.pow(10,i) + (i < l2.length ? l2[l2.length - 1 - i] : 0) * Math.pow(10,i);
+    const a1 = createArrayFromList(l1);
+    const a2 = createArrayFromList(l2);
+    for(let i = 0; i < Math.max(a1.length, a2.length); i++) {
+        sum += (i < a1.length ? a1[a1.length - 1 - i] : 0) * Math.pow(10,i) + (i < a2.length ? a2[a2.length - 1 - i] : 0) * Math.pow(10,i);
     }
-    sum.toString().split('').reverse().forEach(node => {
-        list.next = new ListNode(node);
-        list = list.next;
-    });
+    const arr = sum.toString().split('').reverse();
+    return createListFromArray(arr);
+}
+
+function createListFromArray(arr) {
+    const list = new ListNode(arr.shift());
+    let _list = list;
+    for (const node of arr) {
+        _list.next = new ListNode(node);
+        _list = _list.next;
+    }
     return list;
 }
 
-function ListNode(val, next) {
-    this.val = (val===undefined ? 0 : val);
-    this.next = (next===undefined ? null : next);
+function createArrayFromList(list) {
+    let arr = [];
+    if(list.next !== null) {
+        arr = [list.val, ...createArrayFromList(list.next)];
+    } else {
+        arr = [list.val];
+    }
+    return arr;
 }
