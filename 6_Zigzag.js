@@ -37,9 +37,10 @@
 // s consists of English letters (lower-case and upper-case), ',' and '.'.
 // 1 <= numRows <= 1000
 const s = [
-    { string: 'PAYPALISHIRING', rows:3},  // "PAHNAPLSIIGYIR"
-    { string: 'PAYPALISHIRING', rows:4}, // "PINALSIGYAHRPI"
-    { string: 'A', rows:1} // "A"
+    // { string: 'PAYPALISHIRING', rows:3},  // "PAHNAPLSIIGYIR"
+    // { string: 'PAYPALISHIRING', rows:4}, // "PINALSIGYAHRPI"
+    // { string: 'A', rows:1}, // "A"
+    { string: 'AB', rows: 1}
 ];
 /**
  * @param {string} s
@@ -47,32 +48,23 @@ const s = [
  * @return {string}
  */
 const convert = function(s, numRows) {
-    if(s.length === 1) return s;
-    let i = 0;
-    let s_first = '';
+    if(numRows === 1) return s;
+    const midRows = numRows - 2;
+    const arr = [];
+    let i = 0, j = 0;
     while(i < s.length) {
-        s_first += s.charAt(i);
-        i += numRows + numRows -2;
+            arr[j] = (j === 0 || j % 2 === 0) ? s.substring(i, i += numRows) : s.substring(i, i += midRows);
+            j++;
     }
-    let s_last = '';
-    i = numRows - 1;
-    while(i < s.length) {
-        s_last += s.charAt(i);
-        i += numRows + numRows -2;
+    let resStr = '';
+    for(let row = 0; row < numRows; row++) {
+        for(let i = 0; i < arr.length; i++) {
+            const char = (i === 0 || i % 2 === 0) ? arr[i].charAt(row) : row === 0 || row === numRows - 1 ? '' : arr[i].charAt(midRows - row);
+            resStr = resStr.concat(char);
+        }
     }
-    let str = [];
-    for(let j = numRows - 2; j > 0; j--) {
-      str[j] = '';
-      i = numRows - 2;
-      while(i < s.length) {
-          str[j] += s.charAt(i) + ((i + 2) < s.length) ? s.charAt(i +2) : '';
-          i += numRows * 3 - 2;
-      }
-      console.log(str[j]);
-    }
-    console.log(s_first);
-    console.log(s_last);
-    return s_first + str.join('') + s_last;
+    return resStr;
 };
 
 s.forEach(item => console.log(convert(item.string, item.rows)));
+
