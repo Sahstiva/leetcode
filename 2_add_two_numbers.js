@@ -1,9 +1,13 @@
 const l1 = [
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [2,4,9],
     [2,4,3], // Output: [7,0,8]
     [0], // Output: [0]
     [9,9,9,9,9,9,9] // Output: [8,9,9,9,0,0,0,1]
     ];
     l2 = [
+        [5,6,4],
+        [5,6,4,9],
         [5,6,4],
         [0],
         [9,9,9,9]
@@ -19,13 +23,9 @@ class ListNode {
 l1.forEach((item,index) => console.log(JSON.stringify(addTwoNumbers(createListFromArray(l1[index]), createListFromArray(l2[index])))));
 
 function addTwoNumbers(l1,l2) {
-    let sum = 0;
-    const a1 = createArrayFromList(l1);
-    const a2 = createArrayFromList(l2);
-    for(let i = 0; i < Math.max(a1.length, a2.length); i++) {
-        sum += (i < a1.length ? a1[a1.length - 1 - i] : 0) * Math.pow(10,i) + (i < a2.length ? a2[a2.length - 1 - i] : 0) * Math.pow(10,i);
-    }
-    const arr = sum.toString().split('').reverse();
+    const s1 = createArrayFromList(l1).reverse().join('');
+    const s2 = createArrayFromList(l2).reverse().join('');
+    const arr = (BigInt(s1) + BigInt(s2)).toString().split('').reverse();
     return createListFromArray(arr);
 }
 
@@ -48,3 +48,4 @@ function createArrayFromList(list) {
     }
     return arr;
 }
+

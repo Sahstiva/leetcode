@@ -13,7 +13,7 @@ LeetCode
 |5| + |[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | [Javascript](./5_Palindromic.js)|<span style="color: orange;">Medium</span>|
 |6| - |[Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion/) | [Javascript](./6_Zigzag.js)|<span style="color: orange;">Medium</span>|
 |7| + |[Reverse Integer](https://leetcode.com/problems/reverse-integer/) | [Javascript](./7_Reverse_integer.js)|<span style="color: orange;">Medium</span>|
-|8| - |[String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) | [Javascript](./8_String_to_Integer.js)|<span style="color: orange;">Medium</span>|
+|8| + |[String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) | [Javascript](./8_String_to_Integer.js)|<span style="color: orange;">Medium</span>|
 |9| + |[Palindrome Number](https://leetcode.com/problems/palindrome-number/) | [Javascript](./9_Palindrome_Number.js)|<span style="color: green;">Easy</span>|
 |10| - |[Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/) | [Javascript](./9_Regular_Expression_Matching.js)|<span style="color: red;">Hard</span>|
 |11| + |[Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | [Javascript](./7_Container_With_Most_Water.js)|<span style="color: orange;">Medium</span>|

@@ -85,3 +85,24 @@
 //
 //     0 <= s.length <= 200
 // s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
+
+const test = ['42', '   -42', '4193 with words', ];
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var myAtoi = function(s) {
+    const maxNum = BigInt(Math.pow(2, 31));
+    s = s.replace(/^[^\S\t\n\r]+/,'');
+    const isNegative = s.charAt(0) === '-';
+    s = isNegative || s.charAt(0) === '+' ? s.slice(1, s.length) : s;
+    const digits = s.match(/^\d+/);
+    if(!digits) return 0;
+    let bigNum = BigInt(digits[0]);
+    if(isNegative && bigNum > maxNum) bigNum = maxNum;
+    else if(!isNegative && bigNum > maxNum - BigInt(1)) bigNum = maxNum - BigInt(1);
+    return isNegative ? -1 * Number(bigNum) : Number(bigNum);
+};
+
+test.forEach(item => console.log(myAtoi(item)));
