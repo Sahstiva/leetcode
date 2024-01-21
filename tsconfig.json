@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "declaration": false,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strictPropertyInitialization": false,
+    "types": ["reflect-metadata", "jest", "node"],
+    "lib": ["ES2020"],
+    "target": "ES2020",
+    "strict": true,
+    "outDir": "lib",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "inlineSourceMap": true
+  },
+  "include": [
+    ".",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
