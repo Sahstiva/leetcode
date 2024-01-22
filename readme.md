@@ -18,5 +18,6 @@ LeetCode
 | 10 | - | [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/)                                       | [Javascript]() | <span style="color: red;">Hard</span>      |
 | 11 | + | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)                                           | [Javascript](./11_Container_With_Most_Water.js)   | <span style="color: orange;">Medium</span> |
 | 12 | + | [Integer to Roman](https://leetcode.com/problems/integer-to-roman/)                                                             | [Javascript](./12_Integer_to_Roman.js)   | <span style="color: orange;">Medium</span> |
-| 20 | + | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses)                                                            | [TypeScript](./20_Valid_Parentheses.ts)          | <span style="color: orange;">Easy</span>   |
+| 20 | + | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses)                                                            | [TypeScript](./20_Valid_Parentheses.ts)          | <span style="color: green;">Easy</span>   |
+| 21 | + | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists)                                                            | [TypeScript](./21_Merge_Two_Sorted_Lists.ts)          | <span style="color: green;">Easy</span>   |
 
